@@ -1,0 +1,23 @@
+<div class="container py-5 d-flex flex-column">
+    <div class="row d-flex justify-content-center">
+        <div class="col-12 text-center">
+            <h2><b>Noticias</b></h2>
+            <h3>Navega por las noticias más recientes, accede a las noticias y enterate de lo mas nuevo e interesante de mundo!</h3>
+        </div>
+    </div>
+    <div class="row d-flex justify-content-center">
+        <div class="card col-12 col-md-6 col-lg-3 m-3 shadow p-3 bg-body-tertiary rounded" *ngFor="let noticia of noticias">
+            <img *ngIf="noticia.urlToImage; else imagenPorDefecto" [src]="noticia.urlToImage" class="card-img-top" alt="...">
+            <div class="card-body d-flex flex-column justify-content-between">
+                <h5 class="card-title">{{ noticia.title }}</h5>
+                <p class="card-text">{{ noticia.description }}</p>
+                <a [href]="noticia.url" class="btn btn-dark" target="_blank">Mas detalles</a>
+            </div>
+
+            <ng-template #imagenPorDefecto>
+                <img src="../../../assets/markus-winkler-k_Am9hKISLM-unsplash.jpg" alt="Imagen por defecto">
+            </ng-template>
+
+        </div>
+    </div>      
+</div>
