@@ -5,6 +5,26 @@
             <h3>Navega por las noticias más recientes, accede a las noticias y enterate de lo mas nuevo e interesante de mundo!</h3>
         </div>
     </div>
+
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
+                <ul class="navbar-nav">
+                    <li class="nav-item dropdown">
+                        <button class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                            {{pais}}
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-dark">
+                            <li *ngFor="let country of countries">
+                                <a class="dropdown-item" (click)="getNews(country.code); pais = country.name">{{country.name}}</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
     <div class="row d-flex justify-content-center">
         <div class="card col-12 col-md-6 col-lg-3 m-3 shadow p-3 bg-body-tertiary rounded" *ngFor="let noticia of noticias">
             <img *ngIf="noticia.urlToImage; else imagenPorDefecto" [src]="noticia.urlToImage" class="card-img-top" alt="...">
@@ -17,7 +37,6 @@
             <ng-template #imagenPorDefecto>
                 <img src="../../../assets/markus-winkler-k_Am9hKISLM-unsplash.jpg" alt="Imagen por defecto">
             </ng-template>
-
         </div>
     </div>      
 </div>
